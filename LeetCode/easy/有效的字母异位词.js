@@ -1,15 +1,18 @@
-
+<script>
     let s = "anagram", t = "nagaram";
     var isAnagram = function(s, t) {
-        if(s.length!=t.length) return false
-        const count={}
+        let count={}
+        if(s.length!=t.length) return  false
         for(let i of s){
-            count[i]=(count[i]||0)+1
+            let ss=(count[i]||0)
+            count[i]=ss+1
         }
         for(let i of t){
-            if (!count[i]) return false
+            if(!count[i])  return  false
             count[i]--
         }
-        return true
+        return  true
     };
     console.log(isAnagram(s,t))
+</script>
+
