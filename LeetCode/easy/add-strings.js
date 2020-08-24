@@ -17,4 +17,4 @@ let addStrings = function (num1, num2) {
 let num1 = "9"
 let num2 = "999"
 
-console.log(addStrings(num1, num2))
+

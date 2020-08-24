@@ -17,7 +17,7 @@ s = "axc", t = "ahbgdc"
 
 //392. 判断子序列
 
-<script>
+
     /*var isSubsequence = function (s, t) {
      let index = -1;
      for (let i = 0; i < s.length; i++) {
@@ -44,5 +44,5 @@ s = "axc", t = "ahbgdc"
     let s = "axc", t = "hbagxc";
     console.log(isSubsequence(s, t))
 
-</script>
+
 

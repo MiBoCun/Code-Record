@@ -14,7 +14,7 @@ var twoSum = function (nums, target) {
 
 let ary = [2, 7, 11, 15]//升序数组
 let tar = 9;
-console.log(twoSum(ary, tar))
+
 
 
 

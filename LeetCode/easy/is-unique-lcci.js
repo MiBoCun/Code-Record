@@ -12,27 +12,24 @@
 */
 
 //判定字符是否唯一
-let str = "adiseha"
-var isUnique = function (astr) {
+let str = "axsa"
+var isUnique = function (s) {
     let map = new Map()
-    map.set(astr[0], 0)
-    let i = 1, isUnique = true;
-    if (astr == "") {
+    if (s == "") {
         return true
     }
-    while (i < astr.length) {
-        if (map.get(astr[i]) != undefined) {
-            isUnique = false;
-            break;
-
+    for (let i = 0; i
+    < s.length; i++) {
+        if (map.has(s[i])) {
+            return false
         } else {
-            map.set(astr[i], i)
-            if (i == astr.length - 1) {
-                return true
-            }
-            i++
+            map.set(s[i], i)
         }
     }
-    return isUnique
+    return true
+
 };
 console.log(isUnique(str))
+
+
+
