@@ -1,6 +1,6 @@
 const ary1 = [1, 3, 5, 2, 4]
 const ary2 = [6, 5, 4, 3, 2, 1, 7]
-console.time('计时器')
+
 
 function nextGreaterElement(nums1, nums2) {
 
@@ -16,7 +16,7 @@ function nextGreaterElement(nums1, nums2) {
 
 
 };
-console.timeEnd('计时器')
+
 nextGreaterElement(ary1, ary2)
 
 function inn(n) {

@@ -18,8 +18,7 @@ var isUnique = function (s) {
     if (s == "") {
         return true
     }
-    for (let i = 0; i
-    < s.length; i++) {
+    for (let i = 0; i < s.length; i++) {
         if (map.has(s[i])) {
             return false
         } else {
@@ -29,7 +28,7 @@ var isUnique = function (s) {
     return true
 
 };
-console.log(isUnique(str))
+
 
 
 

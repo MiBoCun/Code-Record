@@ -1,6 +1,6 @@
 
 
-var climbStairs = function (n) {
+let climbStairs = function (n) {
     //滚动数组
     let ary = [0, 1, 2]
     for (let i = 3; i <= n; i++) {
@@ -9,5 +9,3 @@ var climbStairs = function (n) {
     return ary[n]
 
 };
-console.log(climbStairs(4))
-

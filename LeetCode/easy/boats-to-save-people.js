@@ -1,4 +1,4 @@
-var numRescueBoats = function (people, limit) {
+let numRescueBoats = function (people, limit) {
     people.sort((a, b) => (a - b));
     var num = 0
     let left = 0
@@ -12,9 +12,9 @@ var numRescueBoats = function (people, limit) {
         num++
     }
     return num
-    console.log(num)
+   
 };
 let people = [2, 3, 5, 5];
 const limit = 5;
-console.log(numRescueBoats(people, limit))
+
 
