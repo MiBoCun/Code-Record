@@ -15,8 +15,12 @@ new Vue({
   methods: {
     handlePlay(a) {
       console.log(a)
+    },
+    handlePlayCard (card) {
+      console.log('card:'+card)
+      playCard(card)
     }
-  },      
+  }     
 
 
 })

@@ -46,6 +46,9 @@ Vue.component('hand', {
         handlePlay (card) {
             this.$emit('card-play', card)
           },
+          handleLeaveTransitionEnd () {
+            this.$emit('card-leave-end')
+          }
      }
 
 
