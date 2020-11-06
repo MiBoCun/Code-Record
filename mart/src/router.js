@@ -6,18 +6,16 @@ import Cart from './view/Cart'
 Vue.use(VueRouter)
 
 let router = new VueRouter({
-    routers: [{
-            path: '/',
-            components: Home,
-            name: 'name'
-        },
-        {
-            path: '/cart',
-            components: Cart,
-            name: 'cart'
-
-        }
-
-    ]
+    routes:[{
+        path:'/',
+        component:Home,
+        name:'homeeee'
+    },
+    {
+        path:'/cart',
+        component:Cart,
+        name:'cart'
+    }
+]
 })
 export default router

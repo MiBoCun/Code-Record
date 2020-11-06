@@ -1,53 +1,55 @@
 <template>
-  <div id="app">
-    <h1>商品信息</h1>
+  <div id='app'>
     <el-container>
       <el-header>
-        <el-menu mode='horizontal'>
-          <el-menu-item index='1'>
-            logo
-          </el-menu-item>
+        <el-menu  mode="horizontal">
+          <el-menu-item index='1'>logo</el-menu-item>
           <el-menu-item index='2'>
-            <router-link to='/'>
-              首页
-            </router-link>
+            <router-link to='/'>首頁</router-link>
           </el-menu-item>
           <el-menu-item index='3' style="float: right;">
-            <router-link to="/cart">
-              <i class="el-icon-shopping-cart-1"></i>
+            <router-link to='/cart'>
+              <el-badge :value="cartsTol">
+                <i class="el-icon-shopping-cart-2"></i>
+              </el-badge>              
             </router-link>
           </el-menu-item>
         </el-menu>
 
       </el-header>
-      <!-- 切换页面的渲染 -->
       <el-main>
-        <router-view></router-view>
+        <p>{{$route.name}}</p>
+          <router-view></router-view>
       </el-main>
-    </el-container>
-
-
+    </el-container>    
+    
   </div>
 </template>
 
 <script>
-
-  export default {
-    data() {
+  import {mapGetters} from 'vuex'
+  export default({   
+    data () {
       return {
-
+         
       }
+    },   
+    computed: {
+      ...mapGetters({
+        cartsTol:'cartsTotal'
+      })
     },
-    methods: {
+    methods: {   
+             
       
-
-
     }
-
-  }
-
+  })
 </script>
 
 <style>
+  span{
+    width: 200px;
+    display: inline-block;
+  }
 
 </style>

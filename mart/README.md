@@ -1,4 +1,4 @@
-# mart
+# my-mart
 
 ## Project setup
 ```

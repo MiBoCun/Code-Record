@@ -9,69 +9,39 @@ module.exports = {
                         data: [
                             {
                              id: 1,
-                             text: "aaaaa",
+                             text: "百万年薪架构师",
                              count: 105,
-                             img: '/img/01.png'
+                             price: 1800,
+                             img: './assets01.jpg'
                            },
                            {
                             id: 2,
-                            text: "aaaaa",
+                            text: "javaS高级工程師",
                             count: 105,
-                            img: '/img/01.png'
+                            price: 1500,
+                            img: './assets/01.jpg'
                           },
                           {
                             id: 3,
-                            text: "aaaaa",
+                            text: "WEB全栈高工程師",
                             count: 105,
-                            img: '/img/02.png'
+                            price: 3000,
+                            img: './assets/02.png'
                           },
                           {
                             id: 4,
-                            text: "aaaaa",
+                            text: "性能优化工程师",
                             count: 105,
-                            img: '/img/01.png'
+                            price: 2500,
+                            img: './assets/01.jpg'
                           },{
                             id: 5,
-                            text: "aaaaa",
+                            text: "web全栈高级工程师",
                             count: 105,
-                            img: '/img/03.png'
-                          },
-                          {
-                            id: 1,
-                            text: "aaaaa",
-                            count: 105,
-                            img: '/img/01.png'
-                          },{
-                            id: 1,
-                            text: "aaaaa",
-                            count: 105,
-                            img: '/img/04.png'
-                          },{
-                            id: 1,
-                            text: "aaaaa",
-                            count: 105,
-                            img: '/img/01.png'
-                          },{
-                            id: 1,
-                            text: "aaaaa",
-                            count: 105,
-                            img: '/img/04.png'
-                          },{
-                            id: 1,
-                            text: "aaaaa",
-                            count: 105,
-                            img: '/img/04.png'
-                          },{
-                            id: 1,
-                            text: "aaaaa",
-                            count: 105,
-                            img: '/img/01.png'
-                          },{
-                            id: 1,
-                            text: "aaaaa",
-                            count: 105,
-                            img: '/img/02.png'
-                          },
+                            price: 2000,
+                            img: './assets/03.png'
+                          }
+                         
                         ]
                       }
                     )

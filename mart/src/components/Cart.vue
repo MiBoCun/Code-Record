@@ -1,55 +1,65 @@
 <template>
-    <div>   
-    <h1>购物车</h1>
-    <table border="2">
-        <tr>
-            <th>名称</th>
-            <th>单价</th>
-            <th>数量</th>
-            <th>总价</th>
-            <th>操作</th>
-        </tr>
-        <tr v-for="(c,index) in mmm" :key="index">
-            <td>{{c.text}}</td>
-            <td>{{c.price}}</td>
-            <td>{{c.count}}</td>
-            <td>{{c.count * c.price}}</td>
-            <button @click="addCount(index)">+</button>
-            <button @click="deleteCount(index)">-</button>
-        </tr>
-        <p>总价{{total}}元</p>
+  <div>
+    <h2>购物车</h2>
+    <table border="1">
+      <tr>
+        <th>商品</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>价格</th>
+        <th>操作</th>
+      </tr>
+      <tr v-for='(cart,index) in carts' :key='index'>
+        <td>{{cart.text}}</td>
+        <td>{{cart.price}}</td>
+        <td>{{cart.count}}</td>
+        <td>{{cart.price * cart.count}}</td>
+        <td>
+          <button @click='increaseCart(index)'>+</button>
+          <button @click='reduceCart(index)'>-</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5">总价：{{total}}</td>
+      </tr>
     </table>
-</div>
+  </div>
 </template>
+
 <script>
-    export default {
-        props: ['mmm'],
-        data() {
-            return {
+  import {
+    mapState
+  } from 'vuex'
+  export default ({
 
-            }
-        },
-        computed: {
-            total () {
-                return this.mmm.reduce((sum,v) => {
-                    return sum + v.price * v.count
-                },0)
-            }
-        },
-        methods: {
-            addCount(i) {
-                this.$emit("em-add",i)          
+    computed: {
+      ...mapState({
+        carts: state => state.carts
+      }),
+      total: function () {
+        return this.carts.reduce((sum, v) => {
+          return sum += v.price * v.count
+        }, 0)
 
-            },
-            deleteCount(i) {
-                this.$emit("em-del",i)             
-                
-            }
-        }
-    }
+      }
+    },
+
+    methods: {
+      increaseCart(ind) {
+      //  this.$emit('increaseCart', ind)
+      this.$store.commit('increaseCart',ind)
+
+      },
+      reduceCart(ind) {
+      //  this.$emit('reduceCart', ind)
+      this.$store.commit('reduceCart',ind)
+
+      }
+    },
+  })
 
 </script>
-<style>
 
+<style>
 
 </style>

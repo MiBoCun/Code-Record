@@ -1,40 +1,41 @@
 <template>
     <div>
-        <h1>购物车</h1>
-        <CartCom :mmm="carts" @em-add="emAdd" @em-del="emDel"></CartCom>
+        <cart-view :mycart='carts' @increaseCart='increaseCart' @reduceCart='reduceCart'></cart-view>   
     </div>
 </template>
-<script>
-    import CartCom from '../components/Cart'
-    export default {
-        components: {
-            CartCom
-        },
-        data() {
-            return {
-                carts: []
-            }
-        },
-        methods: {
-            emAdd(i) {
-                this.carts[i].count += 1;
-            },
-            emDel(i) {
-                let count = this.carts[i].count
-                if (count != 1) {
-                    this.carts[i].count -= 1
-                } else {
-                    let msg = "确认要从购物车删除吗？"
-                    if (confirm(msg) === true) {
-                        this.carts.splice(i, 1)
-                    }
 
-                }
-            }
-        },
-    }
+<script>
+    import cartView from '../components/Cart'
+    export default({     
+       components:{cartView},
+       data() {
+           return {
+               carts:[]
+
+           }
+       },
+       methods: {
+            increaseCart (ind) {        
+        this.carts[ind].count++
+        
+       },
+        reduceCart (ind) {    
+        let msg = "确认删除吗？"
+        let item =this.carts[ind].count
+        if (item > 1) {
+          this.carts[ind].count--
+        }else{
+          if (confirm(msg,true)) {
+            this.carts.splice(ind,1)
+          } 
+        }
+      }      
+       }
+    })
+
 
 </script>
+
 <style>
 
 
