@@ -9,7 +9,7 @@
           </el-menu-item>
           <el-menu-item index='3' style="float: right;">
             <router-link to='/cart'>
-              <el-badge :value="cartsTol">
+              <el-badge >
                 <i class="el-icon-shopping-cart-2"></i>
               </el-badge>              
             </router-link>
@@ -47,9 +47,6 @@
 </script>
 
 <style>
-  span{
-    width: 200px;
-    display: inline-block;
-  }
+ 
 
 </style>
