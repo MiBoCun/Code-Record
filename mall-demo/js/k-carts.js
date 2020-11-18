@@ -11,6 +11,7 @@ Vue.component('k-carts',{
                 <label for="">全选</label>
             </li>
             <li style="width:134px;">商品</li>
+              <li>名称</li>
               <li style="width:111px;">单价</li>
               <li style="width:47px;">数量</li>
               <li style="width:120px;">小计</li>
@@ -26,6 +27,7 @@ Vue.component('k-carts',{
                    <div class="imgLi">
                      <img :src=cart.cover :title=cart.title>
                    </div>
+                   <div>{{cart.title}}</div>
                    
                    <div>{{cart.price}}</div>
                    <div class="divCount">
