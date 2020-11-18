@@ -45,7 +45,7 @@
             </div>
         </header>
         <k-items v-if="componentName === 'k-items'"  :showitem="showItems"  @addtocart="addToCart" />
-        <k-carts v-if="componentName === 'k-carts'" :cartsitmes="cartsItems" @changecheck="changeCheck" />
+        <k-carts v-if="componentName === 'k-carts'" :cartsitmes="cartsItems" @changecheck="changeCheck" @ischeckall="isCheckAll"/>
        
     </div>`,
     computed: {
@@ -83,7 +83,9 @@
                    element.checked = checked
                }               
            });
-
+        },
+        isCheckAll (newvalue) {
+            this.cartsItems.forEach(item => item.checked = newvalue)
 
         }
     },        

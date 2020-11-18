@@ -1,5 +1,16 @@
 Vue.component('k-carts',{
     props:['cartsitmes'],
+    computed: {
+        checkAll: {
+            get () {
+                return this.cartsitmes.every( m => m.checked)
+            },
+            set (newvalue) {
+                this.$emit('ischeckall',newvalue)
+
+            }  
+        }
+    },
     template:`
     <div id="cartForm">
    
@@ -7,15 +18,15 @@ Vue.component('k-carts',{
         <ul>
             <li> 
                 
-                <input type="checkbox">
+                <input type="checkbox" v-model="checkAll">
                 <label for="">全选</label>
             </li>
-            <li style="width:134px;">商品</li>
-              <li>名称</li>
-              <li style="width:111px;">单价</li>
-              <li style="width:47px;">数量</li>
-              <li style="width:120px;">小计</li>
-              <li>操作</li>
+            <li style="width:34px;">商品</li>
+              <li style="width:200px;">名称</li>
+              <li style="width:95px;">单价</li>
+              <li style="width:115px;">数量</li>
+              <li style="width:150px;">小计</li>
+              <li style="width:63px;">操作</li>
         </ul>           
         </div>
         <div id='formMain'>
@@ -27,14 +38,14 @@ Vue.component('k-carts',{
                    <div class="imgLi">
                      <img :src=cart.cover :title=cart.title>
                    </div>
-                   <div>{{cart.title}}</div>
+                   <div style="width:200px;">{{cart.title}}</div>
                    
-                   <div>{{cart.price}}</div>
-                   <div class="divCount">
+                   <div style="width:95px;">{{cart.price}}</div>
+                   <div class="divCount" >
                      <button >-</button>
                      <input type="text" :value=cart.count>
                      <button >+</button></div>
-                   <div style="width:120px;">{{cart.price * cart.count}}</div>
+                   <div style="width:150px;">{{cart.price * cart.count}}</div>
                    <div class="divOperate" > <button>删除</button></div>
                 </li>               
             </ul>
@@ -51,5 +62,6 @@ Vue.component('k-carts',{
             console.log(e.target.checked)
 
         }
-    },
+
+    }
 })
