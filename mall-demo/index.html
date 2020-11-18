@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mall Demo</title>
+    <link rel="stylesheet" href="static/index.css">
+</head>
+<body>
+    <div id="app"></div>   
+    
+    
+   
+</body>
+<script src="vue.js"></script>
+<script src="js/item.js"></script>
+<script src="js/k-items.js"></script>
+<script src="js/k-page.js"></script>
+<script src="js/k-carts.js"></script>
+
+<script>
+    let  app = new Vue({
+        data:{
+            items,
+            tabType:'',
+            componentName:'k-items',
+            cartsItems:[]
+        },
+        template:`<div id='app'>
+        <header id="header">
+            <a id='logo' href="">Logo</a>
+            <nav id='nav'>
+                <ul>
+                    <li :class="{active: tabType == '' && componentName == 'k-items'}"      @click="changeType('','k-items')">全部</li>
+                    <li :class="{active: tabType == 'phone' && componentName == 'k-items'}" @click="changeType('phone','k-items')">手机</li>
+                    <li :class="{active: tabType == 'pc' && componentName == 'k-items'}"      @click="changeType('pc','k-items')">笔记本</li>
+                    <li :class="{active: tabType == 'jia' && componentName == 'k-items'}"     @click="changeType('jia','k-items')">家电</li>                 
+                </ul>               
+            </nav>
+          
+            <div id='user'>
+                <a href="" :class="{active: componentName == 'k-carts'}"  @click.prevent='chageCompon("k-carts")'>购物车</a>
+                <a href="">登录</a>
+                <a href="">注册</a>
+            </div>
+        </header>
+        <k-items v-if="componentName === 'k-items'"  :showitem="showItems"  @addtocart="addToCart" />
+        <k-carts v-if="componentName === 'k-carts'" :cartsitmes="cartsItems" @changecheck="changeCheck" />
+       
+    </div>`,
+    computed: {
+        showItems:{
+            get () {
+                let items = this.items
+                if (this.tabType !== ''){
+                    items = this.items.filter(m => m.type === this.tabType)
+                }
+                return items
+            }
+        }
+    },
+    methods: {
+        changeType (c,p) {
+            this.tabType = c
+            this.chageCompon(p)
+        },
+        chageCompon (p) {
+            this.componentName = p
+        },
+        addToCart (item) {          
+            let curItem = this.cartsItems.find( m => m.id == item.id)           
+            if(!curItem){
+                curItem = {...item}
+                curItem.count = 0     
+                curItem.checked = false 
+                this.cartsItems.push(curItem)        
+            }
+            curItem.count ++
+        },
+        changeCheck (cart,checked) {
+           this.cartsItems.forEach(element => {
+               if (element.id === cart.id) {
+                   element.checked = checked
+               }               
+           });
+
+
+        }
+    },        
+
+    })
+    app.$mount('#app')
+
+</script>
+</html>

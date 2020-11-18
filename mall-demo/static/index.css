@@ -1,0 +1,176 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+li{
+  list-style: none;
+}
+html,body{
+  height: 100%;
+  width: 100%;
+  
+}
+#app{
+  width:90% ;
+  box-sizing: border-box;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+#header{
+    line-height: 70px;
+    height: 70px;
+    padding: 0px 40px;
+  }
+  #logo{
+    text-decoration: none;
+    display:block;
+    float: left;
+    margin-right: 60px;
+    color: #000;
+  }
+  #nav{
+      float: left;
+  }
+  #nav li {
+    list-style: none;   
+    margin-right: 40px;
+    float: left;
+  }
+  #user{
+    float: right;
+  }
+  .active{
+      color: #f00;
+  }
+  a{
+      text-decoration: none;
+      color: #000;
+  }
+
+  #main{
+    padding: 30px;
+  }
+ 
+  #itemUl li{
+    list-style: none;
+    float: left;
+    width: 18%;
+    box-sizing: border-box;
+    padding: 10px;
+    margin: 10px 1%;
+    border: 1px solid rgb(104, 98, 98);
+  }
+  .imgDiv{
+    width: 180px;
+    height: 180px;
+    margin: 0 auto;
+  }
+
+  .imgDiv img{
+    width: 100%;    
+    box-sizing: border-box;
+    
+  }
+  .text{
+    text-align: center;
+  }
+  .price{
+    text-align: center;
+    color: #f00;
+  }
+  .btn{
+    text-align: center;
+  }
+  /* 分页 */
+  #pageContainer{
+    height: 200px;
+    width: 90%;
+    padding: 0 50px;
+    box-sizing: border-box;
+    float: right;
+  }
+  #pageContainer li{   
+    list-style: none;
+    float: left;
+    padding:3px 8px;
+    text-align: center;
+    margin:0px 10px;
+    border: 1px solid #000;
+  }
+  /* 购物车 */
+  #formTitle{
+    height: 40px;
+    line-height: 40px;
+    background-color: #b0a7a421;
+  }
+
+  #formTitle li{
+    list-style: none;
+    margin: 0 30px;
+    float: left;
+    text-align: center;
+  }
+
+  #formMain li{
+    background-color: #b0a7a421;
+    line-height: 70px;
+    display: block;
+ 
+    height:70px;
+    margin: 4px;
+    box-sizing: border-box;
+}
+    
+  
+ .divCount input{
+   width: 40px;
+ }
+  .divCount button{
+    width: 26px;
+    
+    font-size: 28px;
+    line-height: 18px;
+  }
+  .divOperate button{
+    width: 40px;
+    height: 25px;
+    font-size: 16px;
+  }
+  #formTitle::after{
+    clear: both;
+    content: "";
+  } 
+  #formMain li div {   
+    display: inline-block;
+    margin: 0 30px;
+    text-align: center;
+  }
+  
+  .imgLi{
+    width: 200px;
+    height: 200px;
+  }
+  .imgLi img{
+    width: 60px;
+    height: 60px;
+    vertical-align: middle;
+
+  }
+  /* 立即支付 */
+  #formTotal{
+    float: right;
+    width: 380px;
+  }
+  #payButton{
+    display: inline;
+    width: 120px;
+    height: 30px;
+    font-size: 30px;
+    padding: 4px;
+    color: aliceblue;
+    background-color: #ccc;
+  }
+
+
+  
