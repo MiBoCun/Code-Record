@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="static/index.css">
 </head>
 <body>
-    <div id="app"></div>   
+    <div id="app" aria-disabled=""></div>   
     
     
    
@@ -45,7 +45,7 @@
             </div>
         </header>
         <k-items v-if="componentName === 'k-items'"  :showitem="showItems"  @addtocart="addToCart" />
-        <k-carts v-if="componentName === 'k-carts'" :cartsitmes="cartsItems" @changecheck="changeCheck" @ischeckall="isCheckAll"/>
+        <k-carts v-if="componentName === 'k-carts'" :cartsitmes="cartsItems" @changecheck="changeCheck" @ischeckall="isCheckAll" @changecount="changeCount"/>
        
     </div>`,
     computed: {
@@ -86,6 +86,16 @@
         },
         isCheckAll (newvalue) {
             this.cartsItems.forEach(item => item.checked = newvalue)
+
+        },
+        changeCount (count,cart) {
+            if(count >= 0) {
+                this.cartsItems.forEach(item => {
+                if (item.id === cart.id) {
+                    item.count = count
+                }    
+                })
+            }
 
         }
     },        
