@@ -16,9 +16,10 @@ Vue.component('k-items',{
                 <div class="btn" @click='addToCart(item)'> <button >加入购物车</button></div> 
             </li>          
         </ul>
-        <div id="pageContainer">
+        <div style="clear:both;content:''"></div>   
+       
           <k-pages :total="showitem.length" :prepage="prepage" :curpage="curpage" @chang="changePage" />
-        </div>        
+           
     </div>`,
     computed: {
         curshowitem:{

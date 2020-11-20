@@ -51,12 +51,12 @@ Vue.component('k-carts',{
                 <input type="checkbox" v-model="checkAll">               
                 <label for="">全选</label>
             </li>
-            <li style="width:34px;">商品</li>
-              <li style="width:200px;">名称</li>
-              <li style="width:95px;">单价</li>
-              <li style="width:115px;">数量</li>
-              <li style="width:150px;">小计</li>
-              <li style="width:63px;">操作</li>
+            <li class="goodsImg">商品</li>
+              <li class="goodsName">名称</li>
+              <li class="goodsPrice">单价</li>
+              <li class="goodsCount">数量</li>
+              <li class="goodsCost">小计</li>
+              <li class="goodsOpe">操作</li>
         </ul>           
         </div>
         <div id='formMain'>
@@ -75,7 +75,7 @@ Vue.component('k-carts',{
                      <input type="text" :value=cart.count @blur="changeCount($event.target.value,cart)">
                      <button @click="changeCount(cart.count+1,cart)">+</button></div>
                    <div style="width:150px;">{{(cart.price * cart.count).toFixed(2)}}</div>
-                   <div class="divOperate" > <button>删除</button></div>
+                   <div class="divOperate" @click="deleteItem(cart)"> <button>删除</button></div>
                 </li>               
             </ul>
         </div>
@@ -101,6 +101,9 @@ Vue.component('k-carts',{
         },
         payclick ( ) {
             alert("可以支付了")
+        },
+        deleteItem (cart) {
+           this.$emit("deleteitem",cart)
         }
 
     }

@@ -11,16 +11,18 @@ html,body{
   
 }
 #app{
-  width:90% ;
+
+  height: 100%;
   box-sizing: border-box;
-  padding: 40px;
-  margin: 0 auto;
 }
 
 #header{
-    line-height: 70px;
-    height: 70px;
-    padding: 0px 40px;
+  line-height: 70px;
+  height: 70px;
+  padding: 0px 40px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: aliceblue;
   }
   #logo{
     text-decoration: none;
@@ -61,6 +63,7 @@ html,body{
     margin: 10px 1%;
     border: 1px solid rgb(104, 98, 98);
   }
+ 
   .imgDiv{
     width: 180px;
     height: 180px;
@@ -84,16 +87,13 @@ html,body{
   }
   /* 分页 */
   #pageContainer{
-    height: 200px;
-    width: 90%;
-    padding: 0 50px;
-    box-sizing: border-box;
-    float: right;
+    float: right;      
+    text-align: right;
   }
   #pageContainer li{   
     list-style: none;
     float: left;
-    padding:3px 8px;
+    padding:1px 4px;
     text-align: center;
     margin:0px 10px;
     border: 1px solid #000;
@@ -131,11 +131,33 @@ html,body{
     font-size: 28px;
     line-height: 18px;
   }
+  .divOperate {
+    width: 70px;
+  }
   .divOperate button{
     width: 40px;
     height: 25px;
     font-size: 16px;
   }
+.goodsImg{
+  width: 34px;
+}
+.goodsName{
+  width: 210px;
+}
+.goodsPrice{
+  width: 126px;
+}
+.goodsCount{
+  width: 90px;
+}
+.goodsCost{
+  width: 165px;
+}
+.goodsOpe{
+  width: 70px;
+}
+
   #formTitle::after{
     clear: both;
     content: "";
@@ -146,7 +168,9 @@ html,body{
     text-align: center;
   }
   
- 
+ .imgLi{
+   width: 70px;
+ }
   .imgLi img{
     width: 60px;
     height: 60px;
@@ -155,8 +179,8 @@ html,body{
   }
   /* 立即支付 */
   #formTotal{
-    float: right;
    
+    text-align: center;
   }
   .payButton{   
     width: 170px;

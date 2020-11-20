@@ -44,8 +44,8 @@
                 <a href="">注册</a>
             </div>
         </header>
-        <k-items v-if="componentName === 'k-items'"  :showitem="showItems"  @addtocart="addToCart" />
-        <k-carts v-if="componentName === 'k-carts'" :cartsitmes="cartsItems" @changecheck="changeCheck" @ischeckall="isCheckAll" @changecount="changeCount"/>
+        <k-items v-if="componentName === 'k-items'"  :showitem="showItems"  @addtocart="addToCart" /> 
+        <k-carts v-if="componentName === 'k-carts'" :cartsitmes="cartsItems" @changecheck="changeCheck" @ischeckall="isCheckAll" @changecount="changeCount" @deleteitem="deleteItem"/>
        
     </div>`,
     computed: {
@@ -97,8 +97,16 @@
                 })
             }
 
+        },
+        deleteItem (cart) {
+            this.cartsItems.forEach((item,index) => {
+                if (item.id === cart.id) {
+                    this.cartsItems.splice(index,1)
+                }
+            })
+
         }
-    },        
+    }       
 
     })
     app.$mount('#app')
