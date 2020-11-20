@@ -3,7 +3,10 @@ Vue.component('k-carts',{
     computed: {
         checkAll: {
             get () {
-                return this.cartsitmes.every( m => m.checked)
+                if(this.cartsitmes != "") {
+                    return this.cartsitmes.every( m => m.checked)
+                }
+               
             },
             set (newvalue) {
                 this.$emit('ischeckall',newvalue)
@@ -13,10 +16,35 @@ Vue.component('k-carts',{
             get ( ){
                 return this.cartsitmes.find(item => item.checked === true)
             }
+        },
+        isReduce: {
+            get () {
+
+
+            },
+            set () {
+
+            }
+        },
+        countAll: {
+            get () {
+                return this.cartsitmes.filter(m => m.checked).reduce((prev, current) =>{
+                    return prev + parseInt(current.count)
+                }, 0)
+            }
+        },
+        costAll:{
+            get () {
+                return this.cartsitmes.filter(m => m.checked).reduce((prev, current) =>{
+                    return prev + parseInt(current.price) * current.count
+                }, 0)
+            }
         }
     },
     template:`
+    
     <div id="cartForm">   
+  
         <div id="formTitle">
         <ul>
             <li>                 
@@ -34,7 +62,7 @@ Vue.component('k-carts',{
         <div id='formMain'>
             <ul>
                 <li v-for="(cart,index) of cartsitmes" :key="index">
-                   <div>
+                   <div style="width:20px">
                     <input type="checkbox" :checked="cart.checked" @change="chagneChecked(cart,$event)">
                    </div>
                    <div class="imgLi">
@@ -43,7 +71,7 @@ Vue.component('k-carts',{
                    <div style="width:200px;">{{cart.title}}</div>                   
                    <div style="width:95px;">{{cart.price}}</div>
                    <div class="divCount" >                  
-                     <button @click="changeCount(cart.count-1,cart)">-</button>
+                     <button @click="changeCount(cart.count-1,cart)" >-</button>
                      <input type="text" :value=cart.count @blur="changeCount($event.target.value,cart)">
                      <button @click="changeCount(cart.count+1,cart)">+</button></div>
                    <div style="width:150px;">{{(cart.price * cart.count).toFixed(2)}}</div>
@@ -51,9 +79,10 @@ Vue.component('k-carts',{
                 </li>               
             </ul>
         </div>
+
         <div id='formTotal'>
-         <span>一共选择了  件商品，</span>
-         <span>总计    元</span>
+         <span>一共选择了{{countAll}}件商品，</span>
+         <span>总计{{costAll.toFixed(2)}}元</span>
          <button class="payButton" :class="{payActive: isPay}" :disabled="!isPay" @click="payclick">立即支付</button>
         </div>
     </div>`,
@@ -63,12 +92,15 @@ Vue.component('k-carts',{
            
         },
         changeCount (count,cart) {
-            console.log(count,cart)
+            if(count === 1) {
+                this.isReduce
+            }
+          
             this.$emit('changecount',count,cart)
 
         },
         payclick ( ) {
-            alert("我可以点击了")
+            alert("可以支付了")
         }
 
     }

@@ -1,13 +1,13 @@
 Vue.component('k-items',{
     props: ['showitem'],
     data() {
-        return {
-            perpage:10,
-            curpage:1            
-        }
+        return {          
+            curpage:1,
+            prepage:10            
+        }        
     },
     template:`
-    <div id="main">
+    <div id="main">     
         <ul id="itemUl">
             <li v-for="(item,index) in curshowitem" :key="index">
                 <div class="imgDiv"><img :src=item.cover ></div>
@@ -17,25 +17,24 @@ Vue.component('k-items',{
             </li>          
         </ul>
         <div id="pageContainer">
-          <k-pages :total="showitem.length" :perpage="10" :curpage="curpage" @chage="changePage" />
+          <k-pages :total="showitem.length" :prepage="prepage" :curpage="curpage" @chang="changePage" />
         </div>        
     </div>`,
     computed: {
-        curshowitem:function (){
-            let start = (this.curpage - 1) * this.perpage
-            let end  =  start + this.perpage
-            return this.showitem.slice(start, end)
-
+        curshowitem:{
+            get (){
+                let start = (this.curpage - 1) * this.prepage
+                let end  =  start + this.prepage
+                return this.showitem.slice(start, end) 
+            }           
         }
     },
     methods: {
-        changePage (p){
-            this.curpage = p
-            console.log(p)
+        changePage (p){            
+            this.curpage = p          
         },
         addToCart (item) {
             this.$emit("addtocart",item)
         }
     }
-
 })
